@@ -1,0 +1,203 @@
+<div ng-include="'navigation/header.html'"></div>
+<form layout="column" name="marketingForm">
+   <md-table-container flex>
+      <table 
+         md-table>
+         <thead md-head>
+            <tr class="text-center" md-row>
+               <th md-column>JSON Object</th>
+               <th md-column class="primary-col">99 Acres</th>
+               <th md-column>Magic Bricks</th>
+               <th md-column class="primary-col">XYZ</th>
+               <th md-column>Roofpik</th>
+            </tr>
+         </thead>
+         <tbody md-body>
+            <tr fb-md-row property="projectStatus" class="text-center" md-row></tr>
+            <tr fb-md-row property="buy" class="text-center" md-row></tr>
+            <tr fb-md-row property="version" class="text-center" md-row></tr>
+            <tr fb-md-row property="versionCreatedTime" class="text-center" md-row></tr>
+            <tr fb-md-row property="versionLiveTime" class="text-center" md-row></tr>
+            <tr fb-md-row property="versionEndTime" class="text-center" md-row></tr>
+            <tr fb-md-row property="status" class="text-center" md-row></tr>
+            <tr fb-md-row property="versionCreatedBy" class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="ratings" class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["ratings","number"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["ratings","average"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="ranking" class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["ranking","score"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="priceRange" class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="buy" class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="booking" class="text-center" md-row></tr>
+            <tr fb-md-row-four-level property='["priceRange","buy","booking", "min"]' class="text-center" md-row></tr>
+            <tr fb-md-row-four-level property='["priceRange","buy","booking", "max"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="resale"></tr>
+            <tr fb-md-row-four-level property='["priceRange","buy","resale", "min"]' class="text-center" md-row></tr>
+            <tr fb-md-row-four-level property='["priceRange","buy","resale", "max"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="rent"></tr>
+            <tr fb-md-row-three-level property='["priceRange","rent", "min"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["priceRange","rent", "max"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["priceRange","rent", "average"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="projectDetails"></tr>
+            <tr fb-md-row-two-level property='["projectDetails","projectName"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["projectDetails","builderName"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["projectDetails","builderId"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="address"></tr>
+            <tr fb-md-row-three-level property='["projectDetails","address","cityName"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["projectDetails","address","cityId"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="locations"></tr>
+            <tr fb-md-row-heading title="TO ASK"></tr>
+            <tr fb-md-row-three-level property='["projectDetails","address","address_line1"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["projectDetails","address","address_line2"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["projectDetails","address","zone"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["projectDetails","address","zoneId"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["projectDetails","address","pincode"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["projectDetails","address","landmark"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["projectDetails","address","placeId"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["projectDetails","address","lat"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["projectDetails","address","lng"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="partners"></tr>
+            <tr fb-md-row-heading title="constructionCompany"></tr>
+            <tr fb-md-row-four-level property='["projectDetails","partners","constructionCompany","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-four-level property='["projectDetails","partners","constructionCompany","website"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="architect"></tr>
+            <tr fb-md-row-four-level property='["projectDetails","partners","architect","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-four-level property='["projectDetails","partners","architect","website"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="landscapeDesigner"></tr>
+            <tr fb-md-row-four-level property='["projectDetails","partners","landscapeDesigner","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-four-level property='["projectDetails","partners","landscapeDesigner","website"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="approvedBankLoans"></tr>
+            <tr ng-repeat="(key, value) in json.projectDetails.approvedBankLoans" fb-md-row-three-level property='["projectDetails","approvedBankLoans", "{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="projectType"></tr>
+            <tr ng-repeat="(key, value) in json.projectDetails.projectType" fb-md-row-three-level property='["projectDetails","projectType","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["projectDetails","totalUnits"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["projectDetails","totalTowers"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["projectDetails","greenArea"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["projectDetails","landArea"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="floors"></tr>
+            <tr fb-md-row-three-level property='["projectDetails","floors", "min"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["projectDetails","floors", "max"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="lifts"></tr>
+            <tr fb-md-row-three-level property='["projectDetails","lifts", "min"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["projectDetails","lifts", "max"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["projectDetails","carParking"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["projectDetails","visitorCarParking"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["projectDetails","vastuCompliant"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="rwa"></tr>
+            <tr ng-repeat="(key, value) in json.rwa" fb-md-row-two-level property='["rwa","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="sportsActivities"></tr>
+            <tr ng-repeat="(key, value) in json.sportsActivities" fb-md-row-two-level property='["sportsActivities","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="costing"></tr>
+            <tr ng-repeat="(key, value) in json.costing" fb-md-row-two-level property='["costing","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="other"></tr>
+            <tr ng-repeat="(key, value) in json.other" fb-md-row-two-level property='["other","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="security"></tr>
+            <tr fb-md-row-heading title="mainGate"></tr>
+            <tr ng-repeat="(key, value) in json.security.mainGate" fb-md-row-three-level property='["security","mainGate","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="tower"></tr>
+            <tr ng-repeat="(key, value) in json.security.tower" fb-md-row-three-level property='["security","tower","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["security","tagsForVehicles"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["security","stickersForVehicles"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["security","numberOfEntryOrExitPoints"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["security","videoDoorPhone"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["security","workerClearance"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["security","workerPass"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="societyShops"></tr>
+            <tr fb-md-row-heading title="grocery"></tr>
+            <tr fb-md-row-three-level property='["societyShops","grocery","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["societyShops","grocery","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="pharmacy"></tr>
+            <tr fb-md-row-three-level property='["societyShops","pharmacy","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["societyShops","pharmacy","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="parlour"></tr>
+            <tr fb-md-row-three-level property='["societyShops","parlour","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["societyShops","parlour","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="homeDelivery"></tr>
+            <tr fb-md-row-heading title="restaurant"></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","restaurant","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","restaurant","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="grocery"></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","grocery","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","grocery","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="pharmacy"></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","pharmacy","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","pharmacy","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="cableProvider"></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","cableProvider","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","cableProvider","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="isp"></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","isp","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","isp","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="parlour"></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","parlour","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","parlour","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="milkman"></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","milkman","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","milkman","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="laundry"></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","laundry","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","laundry","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="newspaperDelivery"></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","newspaperDelivery","name"]' class="text-center" md-row></tr>
+            <tr fb-md-row-three-level property='["homeDelivery","newspaperDelivery","contact"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="connectivity"></tr>
+            <tr fb-md-row-heading title="airport"></tr>
+            <tr ng-repeat="(key, value) in json.connectivity.airport" fb-md-row-three-level property='["connectivity","airport","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="cabStand"></tr>
+            <tr ng-repeat="(key, value) in json.connectivity.canStand" fb-md-row-three-level property='["connectivity","cabStand","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="autoStand"></tr>
+            <tr ng-repeat="(key, value) in json.connectivity.autoStand" fb-md-row-three-level property='["connectivity","autoStand","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="metroStation"></tr>
+            <tr ng-repeat="(key, value) in json.connectivity.metroStation" fb-md-row-three-level property='["connectivity","metroStation","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="railwayStation"></tr>
+            <tr ng-repeat="(key, value) in json.connectivity.railwayStation" fb-md-row-three-level property='["connectivity","railwayStation","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="busStand"></tr>
+            <tr ng-repeat="(key, value) in json.connectivity.busStand" fb-md-row-three-level property='["connectivity","busStand","{{key}}"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["connectivity","nearestMainRoad"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["connectivity","mainRoadDistance"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["connectivity","nearestExpressway"]' class="text-center" md-row></tr>
+            <tr fb-md-row-two-level property='["connectivity","expresswayDistance"]' class="text-center" md-row></tr>
+            <tr fb-md-row-heading title="areas"></tr>
+            <tr ng-repeat="(key,value) in json.areas" fb-md-row-two-level property='["areas","{{key}}"]' class="text-center" md-row></tr>
+         </tbody>
+      </table>
+   </md-table-container>
+   <div>
+      <md-button
+         class="md-primary md-raised"
+         ng-click="submit()">Submit</md-button>
+   </div>
+   <div>
+      {{roofpikData | json}}
+   </div>
+   <div>
+         {{json.projectDetails.approvedBankLoans}}
+   </div>
+</form>
+
+
+<!--<fb-md-row property="projectType"></fb-md-row>-->
+            <!--<tr class="text-center" md-row>
+               <td md-cell>projectType</td>
+               <td md-cell>{{acres99['projectType']}}</td>
+               <td md-cell>{{magicBricks['projectType']}}</td>
+               <td md-cell>{{xyz['projectType']}}</td>
+               <td md-cell>
+                  <input type="text" ng-model="roofpikData['buy']">
+               </td>
+            </tr>-->
+
+            <!--<tr 
+               class="text-center"
+               md-row
+               ng-repeat="(key, value) in jsonObject">
+               <td md-cell>{{key | camelCaseToHuman}}</td>
+               <td class="primary-col" md-cell ng-click="roofpikData[key] = acres99[key]">{{acres99[key]}}</td>
+               <td md-cell ng-click="roofpikData[key] = magicBricks[key]">{{magicBricks[key]}}</td>
+               <td class="primary-col" md-cell ng-click="roofpikData[key] = xyz[key]">{{xyz[key]}}</td>
+               <td md-cell>
+                  <input type="text" ng-model="roofpikData[key]">
+               </td>
+            </tr>-->
+
+            

@@ -1,0 +1,49 @@
+<div ng-include="'navigation/header.html'"></div>
+<input type="text" ng-model="url">
+<button ng-click="sendUrl(url)">send url</button>
+<form layout="column" name="marketingForm">
+   <div ng-include="'form/table-one.html'"></div>
+   <div class="center">
+      <h1>Units</h1>
+   </div>
+   <div ng-include="'form/unit-template.html'"></div>
+   <div layout="row">
+      <div flex></div>
+      <md-button
+         class="md-primary md-raised"
+         ng-click="submit()">
+         Submit
+      </md-button>
+   </div>
+   <div>
+      {{roofpikData | json}}
+   </div>
+   <div>
+         {{json.projectDetails.approvedBankLoans}}
+   </div>
+</form>
+<!--<fb-md-row property="projectType"></fb-md-row>-->
+            <!--<tr class="left" md-row>
+               <td md-cell>projectType</td>
+               <td md-cell>{{acres99['projectType']}}</td>
+               <td md-cell>{{magicBricks['projectType']}}</td>
+               <td md-cell>{{xyz['projectType']}}</td>
+               <td md-cell>
+                  <input type="text" ng-model="roofpikData['buy']">
+               </td>
+            </tr>-->
+
+            <!--<tr 
+               class="left"
+               md-row
+               ng-repeat="(key, value) in jsonObject">
+               <td md-cell>{{key | camelCaseToHuman}}</td>
+               <td class="primary-col" md-cell ng-click="roofpikData[key] = acres99[key]">{{acres99[key]}}</td>
+               <td md-cell ng-click="roofpikData[key] = magicBricks[key]">{{magicBricks[key]}}</td>
+               <td class="primary-col" md-cell ng-click="roofpikData[key] = xyz[key]">{{xyz[key]}}</td>
+               <td md-cell>
+                  <input type="text" ng-model="roofpikData[key]">
+               </td>
+            </tr>-->
+
+            

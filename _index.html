@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script>
+      $.ajax({
+         url : 'http://192.168.1.29:5000/testing/',
+         type : 'get',
+         success : function(response){
+            console.log(response)
+         },
+         error : function(xhr, errmsg, msg){
+            console.log(xhr.responseText)
+         }
+      })
+   </script>
+</head>
+
+<body>
+   
+</body>
+</html>

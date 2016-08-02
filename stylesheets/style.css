@@ -1,0 +1,34 @@
+.primary-col {
+   background-color: lightgrey;
+}
+
+.text-center * {
+   padding: 0 56px !important;
+}
+
+.center {
+   text-align: center !important;
+}
+
+.left {
+   text-align: left !important;
+}
+
+.right {
+   text-align: right !important;
+}
+
+.unit-tab {
+   background-color: lightgrey;
+   margin-bottom: 15px;
+}
+
+.unit-tab > h2 {
+   display: inline;
+}
+
+.unit-tab > md-icon {
+   position: absolute;
+   right: 5px;
+   vertical-align: middle;
+}

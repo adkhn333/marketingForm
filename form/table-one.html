@@ -1,0 +1,172 @@
+<md-table-container flex>
+   <table 
+      md-table>
+      <thead md-head>
+         <tr class="text-center" md-row>
+            <th md-column>JSON Object</th>
+            <th md-column class="primary-col">99 Acres</th>
+            <th md-column>Magic Bricks</th>
+            <th md-column class="primary-col">Square Yards</th>
+            <th md-column>Roofpik</th>
+         </tr>
+      </thead>
+      <tbody md-body>
+         <tr fb-md-row property="projectStatus" class="left" md-row></tr>
+         <tr fb-md-row property="buy" class="left" md-row></tr>
+         <tr fb-md-row property="version" class="left" md-row></tr>
+         <tr fb-md-row property="versionCreatedTime" class="left" md-row></tr>
+         <tr fb-md-row property="versionLiveTime" class="left" md-row></tr>
+         <tr fb-md-row property="versionEndTime" class="left" md-row></tr>
+         <tr fb-md-row property="status" class="left" md-row></tr>
+         <tr fb-md-row property="versionCreatedBy" class="left" md-row></tr>
+         <tr fb-md-row-heading title="ratings" class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["ratings","number"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["ratings","average"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="ranking" class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["ranking","score"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="priceRange" class="left" md-row></tr>
+         <tr fb-md-row-heading title="buy" class="left" md-row></tr>
+         <tr fb-md-row-heading title="booking" class="left" md-row></tr>
+         <tr fb-md-row-four-level property='["priceRange","buy","booking", "min"]' class="left" md-row></tr>
+         <tr fb-md-row-four-level property='["priceRange","buy","booking", "max"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="resale" class="left"></tr>
+         <tr fb-md-row-four-level property='["priceRange","buy","resale", "min"]' class="left" md-row></tr>
+         <tr fb-md-row-four-level property='["priceRange","buy","resale", "max"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="rent" class="left"></tr>
+         <tr fb-md-row-three-level property='["priceRange","rent", "min"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["priceRange","rent", "max"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["priceRange","rent", "average"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="projectDetails" class="left"></tr>
+         <tr fb-md-row-two-level property='["projectDetails","projectName"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["projectDetails","builderName"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["projectDetails","builderId"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="address" class="left"></tr>
+         <tr fb-md-row-three-level property='["projectDetails","address","cityName"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["projectDetails","address","cityId"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="locations" class="left"></tr>
+         <tr fb-md-row-heading title="TO ASK" class="left"></tr>
+         <tr fb-md-row-three-level property='["projectDetails","address","address_line1"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["projectDetails","address","address_line2"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["projectDetails","address","zone"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["projectDetails","address","zoneId"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["projectDetails","address","pincode"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["projectDetails","address","landmark"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["projectDetails","address","placeId"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["projectDetails","address","lat"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["projectDetails","address","lng"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="partners" class="left"></tr>
+         <tr fb-md-row-heading title="constructionCompany" class="left"></tr>
+         <tr fb-md-row-four-level property='["projectDetails","partners","constructionCompany","name"]' class="left" md-row></tr>
+         <tr fb-md-row-four-level property='["projectDetails","partners","constructionCompany","website"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="architect" class="left"></tr>
+         <tr fb-md-row-four-level property='["projectDetails","partners","architect","name"]' class="left" md-row></tr>
+         <tr fb-md-row-four-level property='["projectDetails","partners","architect","website"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="landscapeDesigner" class="left"></tr>
+         <tr fb-md-row-four-level property='["projectDetails","partners","landscapeDesigner","name"]' class="left" md-row></tr>
+         <tr fb-md-row-four-level property='["projectDetails","partners","landscapeDesigner","website"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="approvedBankLoans" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.projectDetails.approvedBankLoans" fb-md-row-three-level property='["projectDetails","approvedBankLoans", "{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="projectType" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.projectDetails.projectType" fb-md-row-three-level property='["projectDetails","projectType","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["projectDetails","totalUnits"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["projectDetails","totalTowers"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["projectDetails","greenArea"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["projectDetails","landArea"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="floors" class="left"></tr>
+         <tr fb-md-row-three-level property='["projectDetails","floors", "min"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["projectDetails","floors", "max"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="lifts" class="left"></tr>
+         <tr fb-md-row-three-level property='["projectDetails","lifts", "min"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["projectDetails","lifts", "max"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["projectDetails","carParking"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["projectDetails","visitorCarParking"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["projectDetails","vastuCompliant"]' class="left" md-row></tr>
+
+         <!-- RWA -->
+         <!--<tr fb-md-row-heading title="rwa" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.rwa" fb-md-row-two-level property='["rwa","{{key}}"]' class="left" md-row></tr>-->
+
+         <tr fb-md-row-heading title="sportsActivities" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.sportsActivities" fb-md-row-two-level property='["sportsActivities","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="costing" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.costing" fb-md-row-two-level property='["costing","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="other" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.other" fb-md-row-two-level property='["other","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="security" class="left"></tr>
+         <tr fb-md-row-heading title="mainGate" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.security.mainGate" fb-md-row-three-level property='["security","mainGate","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="tower" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.security.tower" fb-md-row-three-level property='["security","tower","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["security","tagsForVehicles"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["security","stickersForVehicles"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["security","numberOfEntryOrExitPoints"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["security","videoDoorPhone"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["security","workerClearance"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["security","workerPass"]' class="left" md-row></tr>
+
+         <!-- Society Shops-->
+         <!--<tr fb-md-row-heading title="societyShops" class="left"></tr>
+         <tr fb-md-row-heading title="grocery" class="left"></tr>
+         <tr fb-md-row-three-level property='["societyShops","grocery","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["societyShops","grocery","contact"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="pharmacy" class="left"></tr>
+         <tr fb-md-row-three-level property='["societyShops","pharmacy","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["societyShops","pharmacy","contact"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="parlour" class="left"></tr>
+         <tr fb-md-row-three-level property='["societyShops","parlour","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["societyShops","parlour","contact"]' class="left" md-row></tr>-->
+
+         <!-- Home Delivery-->
+         <!--<tr fb-md-row-heading title="homeDelivery" class="left"></tr>
+         <tr fb-md-row-heading title="restaurant" class="left"></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","restaurant","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","restaurant","contact"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="grocery" class="left"></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","grocery","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","grocery","contact"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="pharmacy" class="left"></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","pharmacy","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","pharmacy","contact"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="cableProvider" class="left"></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","cableProvider","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","cableProvider","contact"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="isp" class="left"></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","isp","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","isp","contact"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="parlour" class="left"></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","parlour","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","parlour","contact"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="milkman" class="left"></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","milkman","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","milkman","contact"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="laundry" class="left"></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","laundry","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","laundry","contact"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="newspaperDelivery" class="left"></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","newspaperDelivery","name"]' class="left" md-row></tr>
+         <tr fb-md-row-three-level property='["homeDelivery","newspaperDelivery","contact"]' class="left" md-row></tr>-->
+
+         <!-- Connectivity -->
+         <!--<tr fb-md-row-heading title="connectivity" class="left"></tr>
+         <tr fb-md-row-heading title="airport" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.connectivity.airport" fb-md-row-three-level property='["connectivity","airport","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="cabStand" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.connectivity.canStand" fb-md-row-three-level property='["connectivity","cabStand","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="autoStand" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.connectivity.autoStand" fb-md-row-three-level property='["connectivity","autoStand","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="metroStation" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.connectivity.metroStation" fb-md-row-three-level property='["connectivity","metroStation","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="railwayStation" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.connectivity.railwayStation" fb-md-row-three-level property='["connectivity","railwayStation","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-heading title="busStand" class="left"></tr>
+         <tr ng-repeat="(key, value) in json.connectivity.busStand" fb-md-row-three-level property='["connectivity","busStand","{{key}}"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["connectivity","nearestMainRoad"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["connectivity","mainRoadDistance"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["connectivity","nearestExpressway"]' class="left" md-row></tr>
+         <tr fb-md-row-two-level property='["connectivity","expresswayDistance"]' class="left" md-row></tr>-->
+         
+         <tr fb-md-row-heading title="areas" class="left"></tr>
+         <tr ng-repeat="(key,value) in json.areas" fb-md-row-two-level property='["areas","{{key}}"]' class="left" md-row></tr>
+      </tbody>
+   </table>
+</md-table-container>

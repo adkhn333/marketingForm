@@ -1,0 +1,39 @@
+<div ng-include="'navigation/header.html'"></div>
+<form layout="column" name="marketingForm">
+   <md-table-container flex>
+      <table 
+         md-table>
+         <thead md-head>
+            <tr class="text-center" md-row>
+               <th md-column>JSON Object</th>
+               <th md-column class="primary-col">99 Acres</th>
+               <th md-column>Magic Bricks</th>
+               <th md-column class="primary-col">XYZ</th>
+               <th md-column>Roofpik</th>
+            </tr>
+         </thead>
+         <tbody md-body>
+            <tr 
+               class="text-center"
+               md-row
+               ng-repeat="(key, value) in json">
+               <td md-cell>{{key | camelCaseToHuman}}</td>
+               <td class="primary-col" md-cell ng-click="roofpikData[key] = acres99[key]">{{acres99[key]}}</td>
+               <td md-cell ng-click="roofpikData[key] = magicBricks[key]">{{magicBricks[key]}}</td>
+               <td class="primary-col" md-cell ng-click="roofpikData[key] = xyz[key]">{{xyz[key]}}</td>
+               <td md-cell>
+                  <input type="text" ng-model="roofpikData[key]">
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </md-table-container>
+   <div>
+      <md-button
+         class="md-primary md-raised"
+         ng-click="submit()">Submit</md-button>
+   </div>
+   <div>
+      {{roofpikData | json}}
+   </div>
+</form>
