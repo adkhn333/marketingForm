@@ -1,5 +1,5 @@
 <!--<md-table-container id="table_{{$index+1}}" flex ng-repeat="(key1,value1) in xyz.units">-->
-<md-table-container id="table_{{$index+1}}" flex ng-repeat="(key1,value1) in xyz.units">
+<md-table-container id="table_{{$index+1}}" flex ng-repeat="(key1,value1) in units">
    <div class="center unit-tab" ng-click="show($index+1)">
       <h2>Unit {{$index+1}}</h2>
       <md-icon ng-show="showing === $index+1">remove</md-icon>
@@ -19,16 +19,16 @@
       </thead>
       <tbody md-body>
          <tr fb-md-row-heading title="configurations" class="left"></tr>
-         <tr ng-repeat="(key, value) in xyz['units'][key1]['configurations']" ng-if="key!='price'" fb-md-row-four-level property='["units","{{key1}}","configurations","{{key}}"]' class="left" md-row></tr>
+         <tr ng-repeat="(key, value) in xyz['units']['configurations'][key1]" ng-if="key!='price'" fb-md-row-four-level property='["units","configurations","{{key1}}","{{key}}"]' class="left" md-row></tr>
          <tr fb-md-row-heading title="price" class="left"></tr>
          <tr fb-md-row-heading title="booking" class="left"></tr>
-         <tr fb-md-row-six-level property='["units", "{{key1}}", "configurations", "price", "booking", "min"]' md-row></tr>
-         <tr fb-md-row-six-level property='["units", "{{key1}}", "configurations", "price", "booking", "max"]' md-row></tr>
+         <tr fb-md-row-six-level property='["units", "configurations", "{{key1}}", "price", "booking", "min"]' md-row></tr>
+         <tr fb-md-row-six-level property='["units", "configurations", "{{key1}}", "price", "booking", "max"]' md-row></tr>
          <tr fb-md-row-heading title="resale" class="left"></tr>
-         <tr fb-md-row-six-level property='["units", "{{key1}}", "configurations", "price", "resale", "min"]' md-row></tr>
-         <tr fb-md-row-six-level property='["units", "{{key1}}", "configurations", "price", "resale", "max"]' md-row></tr>
+         <tr fb-md-row-six-level property='["units", "configurations", "{{key1}}", "price", "resale", "min"]' md-row></tr>
+         <tr fb-md-row-six-level property='["units", "configurations", "{{key1}}", "price", "resale", "max"]' md-row></tr>
          <tr fb-md-row-heading title="specifications" class="left"></tr>
-         <tr ng-repeat="(key, value) in xyz['units'][key1]['specifications']" fb-md-row-four-level property='["units","{{key1}}","specifications","{{key}}"]' class="left" md-row></tr>
+         <tr ng-repeat="(key, value) in xyz['units']['specifications']" fb-md-row-three-level property='["units","specifications","{{key}}"]' class="left" md-row></tr>
       </tbody>
    </table>
 </md-table-container>

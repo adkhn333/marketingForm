@@ -1,4 +1,4 @@
-app.controller('formCtrl', function($scope, $http, $location, $anchorScroll, $rootScope, LoadingIndicatorService) {
+app.controller('formCtrl', function($q, $scope, $http, $location, $anchorScroll, $rootScope, LoadingIndicatorService) {
    $rootScope.isLoading = true;
    $scope.roofpikData = {};
    $scope.url = "";
@@ -36,12 +36,26 @@ app.controller('formCtrl', function($scope, $http, $location, $anchorScroll, $ro
       rating: "2",
       price: "100000"
    }
+
+   var unitsLength = 0;
+
    $scope.jsonObject = jsonObject;
    // $scope.acres99 = acres99;
    // $scope.magicBricks = magicBricks;
    $scope.xyz = xyz;
    $scope.submit = function() {
-      console.log($scope.roofpikData);
+      fixUnitIDs().then(function(response) {
+         console.log(response);
+         console.log($scope.roofpikData);
+         var key = db.ref().child('roofpikData/').push().key;
+         var updates = {};
+         $scope.roofpikData.projectId = key;
+         updates['roofpikData/' + key] = $scope.roofpikData;
+         db.ref().update(updates, function(obj) {
+            console.log(obj);
+         });
+
+      });
    };
    $scope.submitUrl = function(data, name) {
       sendUrl(data, name);
@@ -58,17 +72,17 @@ app.controller('formCtrl', function($scope, $http, $location, $anchorScroll, $ro
       }).then(function success(response) {
          console.log(response);
          if(name === "acres99") {
-            $scope.acres99 = response.data.temp;
+            $scope.acres99 = response.data;
             getUnitsLength();
             LoadingIndicatorService.loadingEnd();
          }
          else if(name === "magicBricks") {
-            $scope.magicBricks = response.data.temp;
+            $scope.magicBricks = response.data;
             getUnitsLength();
             LoadingIndicatorService.loadingEnd();
          }
-         else if(name === "squareyards") {
-            $scope.xyz = response.data.temp;
+         else if(name === "squareYards") {
+            $scope.xyz = response.data;
             getUnitsLength();
             LoadingIndicatorService.loadingEnd();
          }
@@ -83,9 +97,10 @@ app.controller('formCtrl', function($scope, $http, $location, $anchorScroll, $ro
          //    $scope.xyz = response.data.temp;
          //    LoadingIndicatorService.loadingEnd();
          // }
-         console.log(response );
+         console.log(response);
       }, function error(response) {
          console.log(response);
+         if(response.data === null) //Show Error Message
          LoadingIndicatorService.loadingEnd();
       });
    }
@@ -94,23 +109,53 @@ app.controller('formCtrl', function($scope, $http, $location, $anchorScroll, $ro
       $rootScope.isLoading = false;
    });
    // console.log(Object.getOwnPropertyNames($scope.acres99['units']).length);
+   $scope.units = {};
+
+   // Replace IDs In The Roofpik Data With Firebase Generated Keys
+   function fixUnitIDs() {
+      var defer = $q.defer();
+      var configurations = {};
+      angular.forEach($scope.roofpikData.units.configurations, function(value, key) {
+         var pushKey = db.ref().child('roofpikData/units/configurations/').push().key;
+         configurations[pushKey] = value;        
+      });
+      $scope.roofpikData.units.configurations = null;
+      $scope.roofpikData.units.configurations = configurations;
+      defer.resolve($scope.roofpikData);
+      return defer.promise;
+   }
+
+
+   // Get The Maximum Length Of Units And Parse The Unit Template Corresponding To $scope.units
    function getUnitsLength() {
       if($scope.acres99) {
          if($scope.acres99.units) {
-            $scope.length = Object.getOwnPropertyNames($scope.acres99.units).length;
-            console.log($scope.length);
+            if($scope.acres99.units.configurations) {
+               $scope.length = Object.getOwnPropertyNames($scope.acres99.units.configurations).length;
+               $scope.units = $scope.acres99.units.configurations;
+               console.log($scope.units);
+               console.log($scope.length);
+            }
          }
       }
       if($scope.magicBricks) {
          if($scope.magicBricks.units) {
-            $scope.length = $scope.length > Object.getOwnPropertyNames($scope.magicBricks.units).length ? $scope.length : Object.getOwnPropertyNames($scope.magicBricks.units).length;
-            console.log($scope.length);
+            if($scope.magicBricks.units.configurations) {
+               $scope.length = $scope.length > Object.getOwnPropertyNames($scope.magicBricks.units.configurations).length ? $scope.length : Object.getOwnPropertyNames($scope.magicBricks.units.configurations).length;
+               $scope.units = Object.getOwnPropertyNames($scope.units).length > Object.getOwnPropertyNames($scope.magicBricks.units.configurations).length ? $scope.units : $scope.magicBricks.units.configurations;
+               console.log($scope.units);
+               console.log($scope.length);
+            }
          }
       }
       if($scope.xyz) {
          if($scope.xyz.units) {
-            $scope.length = $scope.length > Object.getOwnPropertyNames($scope.xyz.units).length ? $scope.length : Object.getOwnPropertyNames($scope.xyz.units).length;
-            console.log($scope.length);
+            if($scope.xyz.units.configurations) {
+               $scope.length = $scope.length > Object.getOwnPropertyNames($scope.xyz.units.configurations).length ? $scope.length : Object.getOwnPropertyNames($scope.xyz.units.configurations).length;
+               $scope.units = Object.getOwnPropertyNames($scope.units).length > Object.getOwnPropertyNames($scope.xyz.units.configurations).length ? $scope.units : $scope.xyz.units.configurations;
+               console.log($scope.units);
+               console.log($scope.length);
+            }
          }
       }
    }
